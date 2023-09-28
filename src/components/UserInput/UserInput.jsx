@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "../sass/sip.scss";
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "INR",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
 const UserInput = (props) => {
   const initialUserInput = {
     "current-saving": 10000,
@@ -34,7 +40,8 @@ const UserInput = (props) => {
             <div className="d-fx">
               <div>
                 <label htmlFor="current-saving">
-                  Current Amount <b> {userInput["current-saving"]}</b>
+                  Current Amount{" "}
+                  <b> {formatter.format(userInput["current-saving"])}</b>
                 </label>
 
                 <input
@@ -50,7 +57,8 @@ const UserInput = (props) => {
               </div>
               <div>
                 <label htmlFor="yearly-contribution">
-                  Monthly Contribution <b>{userInput["yearly-contribution"]}</b>
+                  Monthly Contribution{" "}
+                  <b>{formatter.format(userInput["yearly-contribution"])}</b>
                 </label>
                 <input
                   onChange={(event) =>
@@ -69,7 +77,7 @@ const UserInput = (props) => {
               <div>
                 <label htmlFor="expected-interest">
                   Expected interest (yearly){" "}
-                  <b>{userInput["expected-interest"]}</b>
+                  <b>{formatter.format(userInput["expected-interest"])}</b>
                 </label>
                 <input
                   onChange={(event) =>
@@ -85,7 +93,7 @@ const UserInput = (props) => {
               <div>
                 <label htmlFor="investment-duration">
                   Investment duration (in year){" "}
-                  <b>{userInput["investment-duration"]}</b>
+                  <b>{formatter.format(userInput["investment-duration"])}</b>
                 </label>
                 <input
                   value={userInput["investment-duration"]}
