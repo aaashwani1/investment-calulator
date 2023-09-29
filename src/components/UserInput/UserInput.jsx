@@ -76,8 +76,8 @@ const UserInput = (props) => {
               </div>
               <div>
                 <label htmlFor="expected-interest">
-                  Expected interest (yearly){" "}
-                  <b>{formatter.format(userInput["expected-interest"])}</b>
+                  Expected interest (yearly)
+                  <b> {userInput["expected-interest"]}%</b>
                 </label>
                 <input
                   onChange={(event) =>
@@ -92,8 +92,8 @@ const UserInput = (props) => {
               </div>
               <div>
                 <label htmlFor="investment-duration">
-                  Investment duration (in year){" "}
-                  <b>{formatter.format(userInput["investment-duration"])}</b>
+                  Investment duration
+                  <b> {userInput["investment-duration"]} Years</b>
                 </label>
                 <input
                   value={userInput["investment-duration"]}
